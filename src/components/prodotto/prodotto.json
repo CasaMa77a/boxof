@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_prodotto_prodottos",
+  "info": {
+    "displayName": "prodotto"
+  },
+  "options": {},
+  "attributes": {
+    "nome": {
+      "type": "string"
+    },
+    "anno": {
+      "type": "string"
+    },
+    "genere": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "listen": {
+      "type": "text"
+    },
+    "descrizione": {
+      "type": "text"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

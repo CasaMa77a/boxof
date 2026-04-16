@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prodottis",
+  "info": {
+    "singularName": "prodotti",
+    "pluralName": "prodottis",
+    "displayName": "prodotti"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ordine": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "nome": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "anno": {
+      "type": "string"
+    },
+    "genere": {
+      "type": "string"
+    },
+    "descrizione": {
+      "type": "text"
+    },
+    "listen": {
+      "type": "text"
+    },
+    "label": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

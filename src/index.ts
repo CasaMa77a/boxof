@@ -1,4 +1,4 @@
-// import type { Core } from '@strapi/strapi';
+import type { Core } from '@strapi/strapi';
 
 export default {
   /**
@@ -16,5 +16,35 @@ export default {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  async bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    // Inizializza l'ordine per prodotti esistenti
+    const prodotti = await strapi.entityService.findMany('api::prodotti.prodotti', {
+      sort: { id: 'asc' },
+    });
+    
+    let prodottiOrdine = 1;
+    for (const prodotto of prodotti) {
+      if (!prodotto.ordine || prodotto.ordine === 0) {
+        await strapi.entityService.update('api::prodotti.prodotti', prodotto.id, {
+          data: { ordine: prodottiOrdine },
+        });
+      }
+      prodottiOrdine++;
+    }
+
+    // Inizializza l'ordine per eventi esistenti
+    const eventi = await strapi.entityService.findMany('api::eventi.eventi', {
+      sort: { id: 'asc' },
+    });
+    
+    let eventiOrdine = 1;
+    for (const evento of eventi) {
+      if (!evento.ordine || evento.ordine === 0) {
+        await strapi.entityService.update('api::eventi.eventi', evento.id, {
+          data: { ordine: eventiOrdine },
+        });
+      }
+      eventiOrdine++;
+    }
+  },
 };

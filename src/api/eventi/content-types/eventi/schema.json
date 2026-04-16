@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "eventis",
+  "info": {
+    "singularName": "eventi",
+    "pluralName": "eventis",
+    "displayName": "eventi"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ordine": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "nome": {
+      "type": "string"
+    },
+    "link": {
+      "type": "text"
+    },
+    "via": {
+      "type": "text"
+    },
+    "data": {
+      "type": "string"
+    },
+    "ora": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "luogo": {
+      "type": "text"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

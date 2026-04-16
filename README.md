@@ -40,6 +40,36 @@ Strapi gives you many possible deployment options for your project including [St
 yarn strapi deploy
 ```
 
+### Deploy su Railway
+
+Questo progetto e pronto per Railway con Postgres.
+
+1. Crea un servizio `Postgres` su Railway.
+2. Collega questo repository come servizio `Node`.
+3. Imposta queste variabili nel servizio Strapi:
+
+```
+NODE_ENV=production
+HOST=0.0.0.0
+PORT=${{PORT}}
+PUBLIC_URL=https://<tuo-dominio-railway>
+APP_KEYS=<chiave1>,<chiave2>,<chiave3>,<chiave4>
+API_TOKEN_SALT=<valore-lungo-casuale>
+ADMIN_JWT_SECRET=<valore-lungo-casuale>
+TRANSFER_TOKEN_SALT=<valore-lungo-casuale>
+JWT_SECRET=<valore-lungo-casuale>
+ENCRYPTION_KEY=<valore-lungo-casuale>
+DATABASE_URL=${{Postgres.DATABASE_URL}}
+DATABASE_SSL=true
+DATABASE_SSL_REJECT_UNAUTHORIZED=false
+```
+
+Note:
+
+- Se `DATABASE_URL` e presente, l'app usa `postgres` automaticamente anche senza `DATABASE_CLIENT=postgres`.
+- Railway ha filesystem effimero: gli upload locali di Strapi in `public/uploads` non sono persistenti. Per produzione usa un volume Railway oppure un provider esterno come S3 o Cloudinary.
+- Railway rileva gia `npm run build` e `npm run start`; non serve altro file di deploy per l'avvio base.
+
 ## 📚 Learn more
 
 - [Resource center](https://strapi.io/resource-center) - Strapi resource center.

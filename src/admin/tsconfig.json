@@ -13,8 +13,9 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": []
   },
-  "include": ["../plugins/**/admin/src/**/*", "./"],
+  "include": ["../plugins/**/admin/src/**/*", "./", "custom.d.ts"],
   "exclude": ["node_modules/", "build/", "dist/", "**/*.test.ts"]
 }
